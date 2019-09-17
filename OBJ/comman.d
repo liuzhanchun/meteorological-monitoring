@@ -1,0 +1,16 @@
+..\obj\comman.o: comman.c
+..\obj\comman.o: comman.h
+..\obj\comman.o: ..\SYSTEM\sys\sys.h
+..\obj\comman.o: ..\USER\stm32f10x.h
+..\obj\comman.o: ..\CORE\core_cm3.h
+..\obj\comman.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\comman.o: ..\USER\system_stm32f10x.h
+..\obj\comman.o: ..\USER\stm32f10x_conf.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\comman.o: ..\USER\stm32f10x.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_flash.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_i2c.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\comman.o: ..\STM32F10x_FWLib\inc\misc.h
