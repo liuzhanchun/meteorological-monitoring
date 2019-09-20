@@ -17,8 +17,8 @@
 ..\obj\main.o: ..\SYSTEM\delay\delay.h
 ..\obj\main.o: ..\HARDWARE\KEY\key.h
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
-..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\HARDWARE\STMFLASH\stmflash.h
 ..\obj\main.o: ..\HARDWARE\IIC\myiic.h
-..\obj\main.o: ..\HARDWARE\RS485\rs485.h
+..\obj\main.o: ..\HARDWARE\DISPLAY\display.h
 ..\obj\main.o: comman.h
+..\obj\main.o: ..\HARDWARE\GPS\gps.h

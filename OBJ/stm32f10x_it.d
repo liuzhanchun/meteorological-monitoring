@@ -15,5 +15,5 @@
 ..\obj\stm32f10x_it.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\stm32f10x_it.o: ..\SYSTEM\delay\delay.h
 ..\obj\stm32f10x_it.o: ..\SYSTEM\sys\sys.h
-..\obj\stm32f10x_it.o: ..\HARDWARE\RS485\rs485.h
+..\obj\stm32f10x_it.o: ..\HARDWARE\DISPLAY\display.h
 ..\obj\stm32f10x_it.o: comman.h

@@ -1,4 +1,4 @@
-#include "rs485.h"
+#include "display.h"
 #include "delay.h"
 
 /*RE跟GPIOC5管脚相连*/   
@@ -20,7 +20,7 @@ void DelayNuS(unsigned int i)
         }
 } 
 
-void rs485_init(u32 bound){
+void display_init(u32 bound){
   //GPIO端口设置
 	
     
@@ -76,7 +76,7 @@ void rs485_init(u32 bound){
 	
 }
  /*发送一个字节数据*/
- void RS485_SendByte(unsigned char SendData)
+ void display_sendbyte(unsigned char SendData)
 {	   
 	Set_DE;
 	Set_RE;

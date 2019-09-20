@@ -18,4 +18,3 @@
 ..\obj\myiic.o: ..\HARDWARE\LED\led.h
 ..\obj\myiic.o: ..\HARDWARE\KEY\key.h
 ..\obj\myiic.o: ..\SYSTEM\usart\usart.h
-..\obj\myiic.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

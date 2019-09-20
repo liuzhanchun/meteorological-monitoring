@@ -16,4 +16,3 @@
 ..\obj\stmflash.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\stmflash.o: ..\SYSTEM\delay\delay.h
 ..\obj\stmflash.o: ..\SYSTEM\usart\usart.h
-..\obj\stmflash.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
