@@ -26,20 +26,7 @@
 #include "delay.h"
 #include "display.h"
 #include "comman.h"
-void USART3_IRQHandler(void)
-{ u8 i=0;
-  if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
-  {
-    /* Read one byte from the receive data register */
-    i = USART_ReceiveData(USART3);
-		g_uart3_irq = i;
 
-  }
-		//RS485_SendByte(i);
-  delay_ms(2);
-}
-
- 
 void NMI_Handler(void)
 {
 }

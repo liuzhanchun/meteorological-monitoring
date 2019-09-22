@@ -2,6 +2,11 @@
 #define __COMMAN_H
 #include "sys.h"
 
+
+extern u8 wind_direction_cmd[8];
+extern u8 wind_speed_cmd[8];
+extern u8 box_cmd[8];
+
 typedef enum
 {
 	FALSE = 0,
