@@ -11,29 +11,43 @@
 #include "gps.h"
 #include "sensor.h"
 
-
+unsigned short crc_result;
+u8 uuuu;
+	
+	
 int main(void)
 {	
 
 	delay_init();	    	 //延时函数初始化	  
 	NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	gps_init(4800);
-	sensor_init(4800);
+	//sensor_init(4800);
 	 
 	//uart_init(9600);	 //串口初始化为9600
 	//printf("Let's begin\r\n");
 	 
-//	display_init(9600);
-	//__set_PRIMASK(1); 
+	display_init(57600);
+	//__set_PRIMASK(1);
+		display_senddata(led_init_cmd,30);
+		delay_ms(1000);
+		delay_ms(1000);	
+	
+	crc_result=my_CRC(led_init_cmd,27);
+	
+	uuuu=led_humidity_temp_cmd[69];
+	uuuu=led_humidity_temp_cmd[85];
 	while(1)
 	{
+
+		delay_ms(1000);
+	//	display_senddata(led_PM25_PM10_cmd,97);
 		
-		sensor_senddata(wind_direction_cmd,8);
+		/*sensor_senddata(wind_direction_cmd,8);
 		delay_ms(1000);
 		sensor_senddata(wind_speed_cmd,8);
 		delay_ms(1000);
 		sensor_senddata(box_cmd,8);
-		delay_ms(1000);
+		delay_ms(1000);*/
 		
 	/*	if(g_uart3_irq!=0)
 		{

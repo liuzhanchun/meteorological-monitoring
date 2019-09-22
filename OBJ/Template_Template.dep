@@ -1,5 +1,5 @@
 Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
-F (.\main.c)(0x5D862759)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5D876F8C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\HARDWARE\LED\led.h)(0x5D807742)
 I (..\SYSTEM\sys\sys.h)(0x5D807743)
 I (..\USER\stm32f10x.h)(0x5D807743)
@@ -19,8 +19,8 @@ I (..\HARDWARE\KEY\key.h)(0x5D807742)
 I (..\SYSTEM\usart\usart.h)(0x5D848FB6)
 I (..\HARDWARE\STMFLASH\stmflash.h)(0x5D807742)
 I (..\HARDWARE\IIC\myiic.h)(0x5D807742)
-I (..\HARDWARE\DISPLAY\display.h)(0x5D860784)
-I (comman.h)(0x5D86205A)
+I (..\HARDWARE\DISPLAY\display.h)(0x5D873075)
+I (comman.h)(0x5D877F5A)
 I (..\HARDWARE\GPS\gps.h)(0x5D85FA45)
 I (..\HARDWARE\SENSOR\sensor.h)(0x5D862903)
 F (.\stm32f10x_it.c)(0x5D860841)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
@@ -40,8 +40,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5D807743)
 I (..\SYSTEM\delay\delay.h)(0x5D849311)
 I (..\SYSTEM\sys\sys.h)(0x5D807743)
-I (..\HARDWARE\DISPLAY\display.h)(0x5D860784)
-I (comman.h)(0x5D86205A)
+I (..\HARDWARE\DISPLAY\display.h)(0x5D873075)
+I (comman.h)(0x5D877F5A)
 F (.\system_stm32f10x.c)(0x5D807743)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
 I (stm32f10x.h)(0x5D807743)
 I (..\CORE\core_cm3.h)(0x5D807742)
@@ -56,8 +56,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5D807743)
-F (.\comman.c)(0x5D862112)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\comman.o --omf_browse ..\obj\comman.crf --depend ..\obj\comman.d)
-I (comman.h)(0x5D86205A)
+F (.\comman.c)(0x5D878041)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\comman.o --omf_browse ..\obj\comman.crf --depend ..\obj\comman.d)
+I (comman.h)(0x5D877F5A)
 I (..\SYSTEM\sys\sys.h)(0x5D807743)
 I (..\USER\stm32f10x.h)(0x5D807743)
 I (..\CORE\core_cm3.h)(0x5D807742)
@@ -154,9 +154,9 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5D807743)
 I (..\SYSTEM\delay\delay.h)(0x5D849311)
-I (..\USER\comman.h)(0x5D86205A)
-F (..\HARDWARE\DISPLAY\display.c)(0x5D860779)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\display.o --omf_browse ..\obj\display.crf --depend ..\obj\display.d)
-I (..\HARDWARE\DISPLAY\display.h)(0x5D860784)
+I (..\USER\comman.h)(0x5D877F5A)
+F (..\HARDWARE\DISPLAY\display.c)(0x5D873074)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\display.o --omf_browse ..\obj\display.crf --depend ..\obj\display.d)
+I (..\HARDWARE\DISPLAY\display.h)(0x5D873075)
 I (..\SYSTEM\sys\sys.h)(0x5D807743)
 I (..\USER\stm32f10x.h)(0x5D807743)
 I (..\CORE\core_cm3.h)(0x5D807742)
@@ -187,7 +187,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5D807743)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5D807743)
 I (..\SYSTEM\delay\delay.h)(0x5D849311)
-I (..\USER\comman.h)(0x5D86205A)
+I (..\USER\comman.h)(0x5D877F5A)
 F (..\SYSTEM\delay\delay.c)(0x5D807743)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\STMFLASH -I..\HARDWARE\IIC -I..\HARDWARE\DISPLAY -I..\HARDWARE\GATEWAY -I..\HARDWARE\GPS -I..\HARDWARE\SENSOR-I D:\gitwork\meteorological-monitoring\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x5D849311)
 I (..\SYSTEM\sys\sys.h)(0x5D807743)
