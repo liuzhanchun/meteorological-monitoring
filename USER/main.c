@@ -6,69 +6,224 @@
 #include "stmflash.h"
 #include "myiic.h"
 #include "display.h"
-//#include "usart.h"	
 #include "comman.h"
 #include "gps.h"
 #include "sensor.h"
+#include "stm32f10x_iwdg.h"
 
 unsigned short crc_result;
-u8 uuuu;
-	
+u8 g_qianwei,g_baiwei,g_shiwei,g_gewei;
+int hfh=1000;
+
+/*sensor---USART3
+	gps---USART2
+	gate---USART1
+	display---USART4
+*/
+void IWDG_Configuration(void);
 	
 int main(void)
 {	
-
 	delay_init();	    	 //延时函数初始化	  
 	NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
+	IWDG_Configuration();
 	gps_init(4800);
-	//sensor_init(4800);
-	 
-	//uart_init(9600);	 //串口初始化为9600
-	//printf("Let's begin\r\n");
-	 
+	sensor_init(4800);
 	display_init(57600);
-	//__set_PRIMASK(1);
-		display_senddata(led_init_cmd,30);
-		delay_ms(1000);
-		delay_ms(1000);	
 	
-	crc_result=my_CRC(led_init_cmd,27);
+	display_senddata(led_init_cmd,30);  //清除 led 静态文字
+	delay_ms(1000);
+	delay_ms(1000);	
 	
-	uuuu=led_humidity_temp_cmd[69];
-	uuuu=led_humidity_temp_cmd[85];
+
 	while(1)
 	{
-
-		delay_ms(1000);
-	//	display_senddata(led_PM25_PM10_cmd,97);
-		
-		/*sensor_senddata(wind_direction_cmd,8);
+		//1、查询传感器值
+		/*
+		sensor_senddata(wind_direction_cmd,8);
 		delay_ms(1000);
 		sensor_senddata(wind_speed_cmd,8);
 		delay_ms(1000);
 		sensor_senddata(box_cmd,8);
-		delay_ms(1000);*/
-		
-	/*	if(g_uart3_irq!=0)
-		{
-			display_sendbyte(0X01);
-			g_uart3_irq = 0;
-		}*/
-	//	__set_PRIMASK(1);  // 关闭总中断
-		
-		//yy = g_gps_buf[0];
-		//gps_senddata(yy,5);
-		// RS485_SendByte(0X01);	
-//			temp=USART_ReceiveData(USART2);
-//		if(temp != 0x00)
-//		{
-//		delay_ms(1099);
-//		}
-	//	__set_PRIMASK(0);    //打开总中断
-		
 		delay_ms(1000);
+		*/
+		
+		//2、发送数据到led
+		sensor_senddata(box_cmd,8); //查询温湿度
+		delay_ms(1000);
+		delay_ms(1000);
+		inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //temp
+		led_temp_humidity_cmd[69] = g_gewei;
+		led_temp_humidity_cmd[67] = g_shiwei;
+		led_temp_humidity_cmd[66] = g_baiwei;
+		led_temp_humidity_cmd[65] = g_qianwei;
+		
+		inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //humidity
+		led_temp_humidity_cmd[85] = g_gewei;
+		led_temp_humidity_cmd[83] = g_shiwei;
+		led_temp_humidity_cmd[82] = g_baiwei;
+		led_temp_humidity_cmd[81] = g_qianwei;
+		
+		crc_result=my_CRC(led_temp_humidity_cmd,90);
+		led_temp_humidity_cmd[90] = crc_result &0x00ff;
+		led_temp_humidity_cmd[91] = crc_result>>8 &0x00ff;
+		
+		display_senddata(led_temp_humidity_cmd,93);
+
+		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);;
+		IWDG_ReloadCounter();
+		
+		sensor_senddata(box_cmd,8);  //查询PM2.5 PM10
+		delay_ms(1000);
+		delay_ms(1000);
+		inttohex_three(hfh,&g_baiwei,&g_shiwei,&g_gewei);  //PM25
+		led_PM25_PM10_cmd[67] = g_gewei;
+		led_PM25_PM10_cmd[66] = g_shiwei;
+		led_PM25_PM10_cmd[65] = g_baiwei;
+		
+		inttohex_three(hfh,&g_baiwei,&g_shiwei,&g_gewei);  //PM10
+		led_PM25_PM10_cmd[84] = g_gewei;
+		led_PM25_PM10_cmd[83] = g_shiwei;
+		led_PM25_PM10_cmd[82] = g_baiwei;
+		
+		crc_result=my_CRC(led_PM25_PM10_cmd,93);
+		led_PM25_PM10_cmd[93] = crc_result &0x00ff;
+		led_PM25_PM10_cmd[94] = crc_result>>8 &0x00ff;
+		
+		display_senddata(led_PM25_PM10_cmd,96);
+
+		delay_ms(1000);
+		delay_ms(1000);
+		IWDG_ReloadCounter();
+		sensor_senddata(wind_direction_cmd,8);  //查询风向
+		delay_ms(1000);
+		sensor_senddata(wind_speed_cmd,8); //查询风速
+		delay_ms(1000);
+		delay_ms(1000);
+		inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //speed
+		led_speed_direction_cmd[68] = g_gewei;
+		led_speed_direction_cmd[66] = g_shiwei;
+		led_speed_direction_cmd[65] = g_baiwei;
+		led_speed_direction_cmd[64] = g_qianwei;
+		
+		inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //direction
+		led_speed_direction_cmd[84] = g_gewei;
+		led_speed_direction_cmd[83] = g_shiwei;
+		led_speed_direction_cmd[82] = g_baiwei;
+		led_speed_direction_cmd[81] = g_qianwei;
+		
+		crc_result=my_CRC(led_speed_direction_cmd,90);
+		led_temp_humidity_cmd[90] = crc_result &0x00ff;
+		led_temp_humidity_cmd[91] = crc_result>>8 &0x00ff;
+		
+		display_senddata(led_speed_direction_cmd,93);
+
+		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);
+		IWDG_ReloadCounter();
+		sensor_senddata(box_cmd,8);  //查询噪声 大气压
+		delay_ms(1000);
+		delay_ms(1000);
+		inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //noise
+		led_noise_atmosphere_cmd[69] = g_gewei;
+		led_noise_atmosphere_cmd[67] = g_shiwei;
+		led_noise_atmosphere_cmd[66] = g_baiwei;
+		led_noise_atmosphere_cmd[65] = g_qianwei;
+		
+		inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //atmosphere
+		led_noise_atmosphere_cmd[86] = g_gewei;
+		led_noise_atmosphere_cmd[84] = g_shiwei;
+		led_noise_atmosphere_cmd[83] = g_baiwei;
+		led_noise_atmosphere_cmd[82] = g_qianwei;
+		
+		crc_result=my_CRC(led_noise_atmosphere_cmd,90);
+		led_temp_humidity_cmd[90] = crc_result &0x00ff;
+		led_temp_humidity_cmd[91] = crc_result>>8 &0x00ff;
+		
+		display_senddata(led_noise_atmosphere_cmd,93);
+
+		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);
+		IWDG_ReloadCounter();
+		
+		
+		//inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //jingdu
+		led_jingdu_weidu_cmd[70] = jingdu[4];
+		led_jingdu_weidu_cmd[69] = jingdu[3];
+		led_jingdu_weidu_cmd[67] = jingdu[2];
+		led_jingdu_weidu_cmd[66] = jingdu[1];
+		led_jingdu_weidu_cmd[65] = jingdu[0];
+		
+		//inttohex_four(hfh,&g_qianwei,&g_baiwei,&g_shiwei,&g_gewei);  //weidu
+		led_jingdu_weidu_cmd[85] = weidu[3];
+		led_jingdu_weidu_cmd[84] = weidu[2];
+		led_jingdu_weidu_cmd[82] = weidu[1];
+		led_jingdu_weidu_cmd[81] = weidu[0];
+		
+		crc_result=my_CRC(led_jingdu_weidu_cmd,90);
+		led_jingdu_weidu_cmd[90] = crc_result &0x00ff;
+		led_jingdu_weidu_cmd[91] = crc_result>>8 &0x00ff;
+		
+		display_senddata(led_jingdu_weidu_cmd,93);
+
+		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);
+		IWDG_ReloadCounter();
+	
+		
+		//3、推送数据到网关
+		
+		
+		
+		
+		
 		
 		USART3_RX_CNT = 0;  //一轮循环后清零，防止错误状态出不起来
 	}
- }
+}
+void IWDG_Configuration(void) 
+{
+    //使能寄存器 写功能
+    IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable); 
+     /* 设置预分频 ,40K/256=156HZ(6.4ms)*/  
+    IWDG_SetPrescaler(IWDG_Prescaler_256);    /*喂狗时间 20S/6.4MS=3125 注意不能大于 xfff*/  
+    IWDG_SetReload(3125);// 20s时间
+    IWDG_ReloadCounter(); //喂狗
+		IWDG_Enable(); //使能独立看门狗
+}
+
+
+
+
+//#include "usart.h"	
+//	__set_PRIMASK(1);  // 关闭总中断
+//	__set_PRIMASK(0);    //打开总中断
+	//uart_init(9600);	 //串口初始化为9600
+	//printf("Let's begin\r\n");
+
+
+//	crc_result=my_CRC(led_init_cmd,27);
+//	
+//	uuuu=led_humidity_temp_cmd[69];
+//	uuuu=led_humidity_temp_cmd[85];
+//	
+
+//	//		//1、查询传感器值
+//		sensor_senddata(wind_direction_cmd,8);
+//		delay_ms(1000);
+//		sensor_senddata(wind_speed_cmd,8);
+//		delay_ms(1000);
+//		sensor_senddata(box_cmd,8);
+//		delay_ms(1000);
+
+
+
+
 

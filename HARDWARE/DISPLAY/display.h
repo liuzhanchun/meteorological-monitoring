@@ -6,6 +6,10 @@ extern void display_init(u32 bound);
 extern void display_sendbyte(unsigned char SendData);
 extern void display_senddata(u8 *buf,u16 len);
 
+//extern void display_init(u32 bound);            		
+//extern void display_sendbyte(unsigned char SendData);
+//extern void display_senddata(u8 *buf,u16 len);
+
 #endif
 
 

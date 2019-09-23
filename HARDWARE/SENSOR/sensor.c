@@ -146,8 +146,6 @@ u8 USART3_RX_BUF[30]={0x00};
 void USART3_IRQHandler(void)
 { 
 	u8 Res;
-	static u8 wind_direction[9] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}; 
-	static u8 i = 0;
 
   if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
   {
@@ -188,8 +186,6 @@ void USART3_IRQHandler(void)
 //		}
 //		
 	}
-	
-	//RS485_SendByte(i);
 	// 溢出-如果发生溢出需要先读SR,再度DR寄存器则可清除不断入中断的问题
 	if(USART_GetFlagStatus(USART3,USART_FLAG_ORE) == SET)
 	{
