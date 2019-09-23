@@ -3,7 +3,7 @@
 ..\obj\comman.o: ..\SYSTEM\sys\sys.h
 ..\obj\comman.o: ..\USER\stm32f10x.h
 ..\obj\comman.o: ..\CORE\core_cm3.h
-..\obj\comman.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\comman.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\comman.o: ..\USER\system_stm32f10x.h
 ..\obj\comman.o: ..\USER\stm32f10x_conf.h
 ..\obj\comman.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
