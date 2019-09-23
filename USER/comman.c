@@ -91,37 +91,42 @@ unsigned short my_CRC(u8 *data, int size)
 	unsigned short tempcrc = 0;
 	unsigned short temp = 0;
 	int i =0;
-	BOOL is_escape = FALSE;
+	u8 temp_value;
+//	BOOL is_escape = FALSE;
 	for (i=8; i<size; i++)
 	{
-		
+		temp_value=data[i];
 		if(data[i]==0xa6 && data[i+1]==0x01)
 		{
-			data[i] = 0xa6;
-			is_escape = TRUE;
+			i++;
+			temp_value = 0xa6;
+			//is_escape = TRUE;
 		}
 		else if(data[i]==0xa6 && data[i+1]==0x02)
 		{
-			data[i] = 0xA5;
-			is_escape = TRUE;
+			i++;
+			temp_value = 0xA5;
+		//	is_escape = TRUE;
 		}
 		else if(data[i]==0x5B && data[i+1]==0x01)
 		{
-			data[i] = 0x5B;
-			is_escape = TRUE;
+			i++;
+			temp_value = 0x5B;
+			//is_escape = TRUE;
 		}
 		if(data[i]==0x5B && data[i+1]==0x02)
 		{
-			data[i] = 0x5A;
-			is_escape = TRUE;
-		}
-		temp = ((tempcrc & 0xff) ^ (data[i] & 0xff));
-		tempcrc = ((tempcrc>>8) & 0xff) ^ tabel_CRC16[temp];
-		if(	is_escape == TRUE)
-		{
 			i++;
-			is_escape = FALSE;
+			temp_value = 0x5A;
+			//is_escape = TRUE;
 		}
+		temp = ((tempcrc & 0xff) ^ (temp_value & 0xff));
+		tempcrc = ((tempcrc>>8) & 0xff) ^ tabel_CRC16[temp];
+//		if(	is_escape == TRUE)
+//		{
+//			i++;
+//			is_escape = FALSE;
+//		}
 
 	}
 	return tempcrc;
