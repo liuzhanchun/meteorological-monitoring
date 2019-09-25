@@ -10,14 +10,19 @@
 #include "gps.h"
 #include "sensor.h"
 #include "gateway.h"
+#include "battery.h"
 #include "stm32f10x_iwdg.h"
+
 
 unsigned short crc_result;
 u8 g_qianwei,g_baiwei,g_shiwei,g_gewei;
-int hfh=1000;
+
 int g_crc_sum;
 u8 g_crc_value[4];
 int g_crc_conut;
+
+int g_ad_value = 0;
+
 /*sensor---USART3
 	gps---USART2
 	gate---USART1
@@ -35,6 +40,7 @@ int main(void)
 	sensor_init(4800);
 	display_init(57600);
 	gateway_Init(9600);
+	battery_init();
 	display_senddata(led_init_cmd,30);  //清除 led 静态文字
 	delay_ms(1000);
 	delay_ms(1000);	
@@ -214,8 +220,34 @@ int main(void)
 		display_senddata(led_jingdu_weidu_cmd,g_crc_sum);
 
 		delay_ms(1000);
+		delay_ms(1000);
+		delay_ms(1000);
 		IWDG_ReloadCounter();
 	
+		g_ad_value = battery_read();
+		inttohex_three(g_ad_value,&g_baiwei,&g_shiwei,&g_gewei);  //battery
+		/*led_jingdu_weidu_cmd[70] = jingdu[4];
+		led_jingdu_weidu_cmd[69] = jingdu[3];
+		led_jingdu_weidu_cmd[67] = jingdu[2];
+		led_jingdu_weidu_cmd[66] = jingdu[1];
+		led_jingdu_weidu_cmd[65] = jingdu[0];
+		
+		crc_result=my_CRC(led_jingdu_weidu_cmd,90);
+		g_crc_sum = 90;
+		g_crc_conut =escape_processing(crc_result,g_crc_value);
+		for(i=0;i<g_crc_conut;i++)
+		{
+			led_jingdu_weidu_cmd[g_crc_sum] = g_crc_value[i];
+			g_crc_sum++;
+		}
+		led_jingdu_weidu_cmd[g_crc_sum] = 0x5A;
+		g_crc_sum++;
+		display_senddata(led_jingdu_weidu_cmd,g_crc_sum);*/
+		
+	
+		
+		delay_ms(1000);
+		IWDG_ReloadCounter();
 		
 		//3、推送数据到网关
 		gateway_send_Data(gate_init_cmd,10);

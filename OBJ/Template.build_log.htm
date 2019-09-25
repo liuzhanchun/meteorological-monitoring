@@ -26,7 +26,16 @@ Project File Date:  09/25/2019
 
 <h2>Output:</h2>
 Build target 'Template'
-"..\OBJ\Template.axf" - 0 Error(s), 0 Warning(s).
+compiling main.c...
+..\HARDWARE\BATTERY\battery.h(5): warning:  #1295-D: Deprecated declaration battery_init - give arg types
+  extern void battery_init();
+..\HARDWARE\BATTERY\battery.h(6): warning:  #1295-D: Deprecated declaration battery_read - give arg types
+  extern int battery_read();
+main.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=12612 RO-data=408 RW-data=1212 ZI-data=2204  
+FromELF: creating hex file...
+"..\OBJ\Template.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   E:\gitwork\meteorological-monitoring\USER\RTE

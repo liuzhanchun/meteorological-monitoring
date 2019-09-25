@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED;..\HARDWARE\KEY;..\HARDWARE\STMFLASH;..\HARDWARE\IIC;..\HARDWARE\DISPLAY;..\HARDWARE\GATEWAY;..\HARDWARE\GPS;..\HARDWARE\SENSOR</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED;..\HARDWARE\KEY;..\HARDWARE\STMFLASH;..\HARDWARE\IIC;..\HARDWARE\DISPLAY;..\HARDWARE\GATEWAY;..\HARDWARE\GPS;..\HARDWARE\SENSOR;..\HARDWARE\BATTERY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -472,6 +472,11 @@
               <FileName>gateway.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\GATEWAY\gateway.c</FilePath>
+            </File>
+            <File>
+              <FileName>battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\BATTERY\battery.c</FilePath>
             </File>
           </Files>
         </Group>

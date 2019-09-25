@@ -24,4 +24,5 @@
 ..\obj\main.o: ..\HARDWARE\GPS\gps.h
 ..\obj\main.o: ..\HARDWARE\SENSOR\sensor.h
 ..\obj\main.o: ..\HARDWARE\GATEWAY\gateway.h
+..\obj\main.o: ..\HARDWARE\BATTERY\battery.h
 ..\obj\main.o: ..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
