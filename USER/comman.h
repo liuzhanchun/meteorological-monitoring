@@ -13,12 +13,13 @@ extern u8 wind_direction_cmd[8];
 extern u8 wind_speed_cmd[8];
 extern u8 box_cmd[8];
 
+extern u8 gate_init_cmd[10];
 extern u8 led_init_cmd[30];
 extern u8 led_PM25_PM10_cmd[100];
-extern u8 led_temp_humidity_cmd[93];
-extern u8 led_speed_direction_cmd[93];
+extern u8 led_temp_humidity_cmd[100];
+extern u8 led_speed_direction_cmd[100];
 extern u8 led_noise_atmosphere_cmd[100];
-extern u8 led_jingdu_weidu_cmd[93];
+extern u8 led_jingdu_weidu_cmd[100];
 extern u8 led_crc[3];
 
 extern int  escape_processing(unsigned short crc,u8 * escape_crc);

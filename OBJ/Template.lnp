@@ -10,6 +10,7 @@
 "..\obj\gps.o"
 "..\obj\display.o"
 "..\obj\sensor.o"
+"..\obj\gateway.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"

@@ -9,6 +9,7 @@
 #include "comman.h"
 #include "gps.h"
 #include "sensor.h"
+#include "gateway.h"
 #include "stm32f10x_iwdg.h"
 
 unsigned short crc_result;
@@ -33,7 +34,7 @@ int main(void)
 	gps_init(4800);
 	sensor_init(4800);
 	display_init(57600);
-	
+	gateway_Init(9600);
 	display_senddata(led_init_cmd,30);  //清除 led 静态文字
 	delay_ms(1000);
 	delay_ms(1000);	
@@ -217,7 +218,7 @@ int main(void)
 	
 		
 		//3、推送数据到网关
-		
+		gateway_send_Data(gate_init_cmd,10);
 		
 		
 		
