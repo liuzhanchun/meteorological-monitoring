@@ -226,23 +226,21 @@ int main(void)
 	
 		g_ad_value = battery_read();
 		inttohex_three(g_ad_value,&g_baiwei,&g_shiwei,&g_gewei);  //battery
-		/*led_jingdu_weidu_cmd[70] = jingdu[4];
-		led_jingdu_weidu_cmd[69] = jingdu[3];
-		led_jingdu_weidu_cmd[67] = jingdu[2];
-		led_jingdu_weidu_cmd[66] = jingdu[1];
-		led_jingdu_weidu_cmd[65] = jingdu[0];
+		led_battery_cmd[71] = g_gewei;
+		led_battery_cmd[70] = g_shiwei;
+		led_battery_cmd[69] = g_baiwei;
 		
-		crc_result=my_CRC(led_jingdu_weidu_cmd,90);
-		g_crc_sum = 90;
+		crc_result=my_CRC(led_battery_cmd,73);
+		g_crc_sum = 73;
 		g_crc_conut =escape_processing(crc_result,g_crc_value);
 		for(i=0;i<g_crc_conut;i++)
 		{
-			led_jingdu_weidu_cmd[g_crc_sum] = g_crc_value[i];
+			led_battery_cmd[g_crc_sum] = g_crc_value[i];
 			g_crc_sum++;
 		}
-		led_jingdu_weidu_cmd[g_crc_sum] = 0x5A;
+		led_battery_cmd[g_crc_sum] = 0x5A;
 		g_crc_sum++;
-		display_senddata(led_jingdu_weidu_cmd,g_crc_sum);*/
+		display_senddata(led_battery_cmd,g_crc_sum);
 		
 	
 		

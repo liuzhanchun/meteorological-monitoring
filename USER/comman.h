@@ -20,6 +20,7 @@ extern u8 led_temp_humidity_cmd[100];
 extern u8 led_speed_direction_cmd[100];
 extern u8 led_noise_atmosphere_cmd[100];
 extern u8 led_jingdu_weidu_cmd[100];
+extern u8 led_battery_cmd[80];
 extern u8 led_crc[3];
 
 extern int  escape_processing(unsigned short crc,u8 * escape_crc);

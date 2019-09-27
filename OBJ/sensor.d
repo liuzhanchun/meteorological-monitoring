@@ -3,7 +3,7 @@
 ..\obj\sensor.o: ..\SYSTEM\sys\sys.h
 ..\obj\sensor.o: ..\USER\stm32f10x.h
 ..\obj\sensor.o: ..\CORE\core_cm3.h
-..\obj\sensor.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\sensor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\sensor.o: ..\USER\system_stm32f10x.h
 ..\obj\sensor.o: ..\USER\stm32f10x_conf.h
 ..\obj\sensor.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
